@@ -1,0 +1,15 @@
+public class Main {
+    public static void main(String[] args) {
+
+        MinionCaster caster = new MinionCaster();
+        MinionCaster caster2 = new MinionCaster();
+        SuperMinion superMinion1 = new SuperMinion();
+        MinionMelee MinionMelee1 = new MinionMelee();
+        MinionCannon MinionCannon1 = new MinionCannon(); 
+        Monstruo Red = new Monstruo();
+
+        caster2.setVida(caster2.getVida() - caster.golpeBasico());
+        System.out.println("la vida restante del caster2 es:" + caster2.getVida());
+
+    }
+}
