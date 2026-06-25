@@ -1,4 +1,3 @@
-
 public class Campeon extends Combatiente{
 
     private double mana;
@@ -16,6 +15,21 @@ public class Campeon extends Combatiente{
         super(nombre, vidaMaxima, golpeBasico, oroOtorgado,
             experienciaOtorgada);
 
+            this.mana = 200;
             this.experienciaActual = 0;
+            this.experienciaRequerida = 500;
+    }
+
+    @Override
+    public void subirNivel(){
+            this.setNivel(this.getNivel() + 1);  
+    }
+
+    public void adquirirExperiencia(double experienciaAdquirida){
+        this.experienciaActual += experienciaAdquirida;
+        if (this.experienciaActual >= this.experienciaRequerida) {
+            this.experienciaRequerida += 500;
+            this.subirNivel();
+        }
     }
 }

@@ -8,8 +8,6 @@ public class Main {
         MinionCannon MinionCannon1 = new MinionCannon(); 
         Monstruo Red = new Monstruo();
 
-        caster2.setVida(caster2.getVida() - caster.golpeBasico());
-        System.out.println("la vida restante del caster2 es:" + caster2.getVida());
-
+        
     }
 }

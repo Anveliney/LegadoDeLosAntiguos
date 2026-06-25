@@ -26,6 +26,10 @@ public class Organico {
         this.nivel = 1;
     }
 
+    public void subirNivel(){
+        this.nivel++;   
+    }
+
     public double recibirGolpe(double golpe){
         return this.vida -= golpe;
     }
@@ -78,6 +82,12 @@ public class Organico {
         this.experienciaOtorgada = experienciaOtorgada;
     }
 
-    
+    public double getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(double nivel) {
+        this.nivel = nivel;
+    }
 
 }

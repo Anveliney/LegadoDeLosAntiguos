@@ -27,4 +27,10 @@ public class Combatiente extends Organico{
         listaItem.add(item);
     }
 
+    @Override
+    public void subirNivel(){
+        this.setNivel(this.getNivel() + 1);
+    }
+
+
 }

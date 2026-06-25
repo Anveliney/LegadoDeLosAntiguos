@@ -4,4 +4,8 @@ public class Monstruo extends Combatiente{
         super();
     }
 
+    public void subirNivel(){
+        
+    }
+
 }
