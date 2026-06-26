@@ -4,12 +4,20 @@ public class Item {
     private double danoItem;
     private double vidaItem;
     private double manaItem;
+    private double criticoItem;
+    private double armaduraItem;
+    private double resistenciaMagicaItem;
 
-    public Item(String nombreItem ,double  danoItem, double vidaItem, double  manaItem){
+    public Item(String nombreItem ,double  danoItem, double vidaItem,
+        double  manaItem, double criticoItem, double armaduraItem, 
+        double resistenciaMagicaItem){
         this.nombreItem = nombreItem;
         this.danoItem = danoItem;
         this.vidaItem = vidaItem;
         this.manaItem = manaItem;
+        this.criticoItem = criticoItem;
+        this.armaduraItem = armaduraItem;
+        this.resistenciaMagicaItem = resistenciaMagicaItem;
     }
 
     public double getDanoItem() {
@@ -42,6 +50,14 @@ public class Item {
 
     public void setManaItem(double manaItem) {
         this.manaItem = manaItem;
+    }
+
+    public double getCriticoItem() {
+        return criticoItem;
+    }
+
+    public void setCriticoItem(double criticoItem) {
+        this.criticoItem = criticoItem;
     }
 
 }

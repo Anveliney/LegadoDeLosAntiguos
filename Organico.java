@@ -3,6 +3,8 @@ public class Organico {
     private double vidaMaxima;
     private String nombre;
     private double golpeBasico;
+    private double armadura;
+    private double resistenciaMagica;
     private double oroOtorgado;
     private double experienciaOtorgada;
     private double nivel;
@@ -11,11 +13,13 @@ public class Organico {
 
     }
 
+
     public Organico(String nombre) {
         this.nombre = nombre;
     }
 
     public Organico(String nombre, double vidaMaxima, double golpeBasico,
+        double armadura, double resistenciaMagica,
         double oroOtorgado, double experienciaOtorgada) {
         this.nombre = nombre;
         this.vida = vidaMaxima;
@@ -32,6 +36,14 @@ public class Organico {
 
     public double recibirGolpe(double golpe){
         return this.vida -= golpe;
+    }
+
+    public void morir(){
+        //pendiente
+    }
+
+    public void revivir(){
+        //pendiente
     }
 
     public double getVida() {

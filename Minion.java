@@ -5,9 +5,12 @@ public class Minion extends Organico {
     }
 
     public Minion(String nombre, double vidaMaxima, double golpeBasico,
-        double oroOtorgado, double experienciaOtorgada) {
-        super(nombre, vidaMaxima, golpeBasico, oroOtorgado,
-            experienciaOtorgada);
+        double armadura, double resistenciaMagica,
+        double oroOtorgado, double experienciaOtorgada
+    ){
+
+        super(nombre, vidaMaxima, golpeBasico, armadura,
+            resistenciaMagica, oroOtorgado, experienciaOtorgada);
     }
 
 }

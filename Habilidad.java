@@ -3,15 +3,17 @@ public class Habilidad {
     private String nombreHabilidad;
     private double costoHabilidad;
     private double tiempoEnfriamiento;
-    private double dañoHabilidad;
+    private double danoHabilidad;
+    private double curacion;
 
     public Habilidad(String nombreHabilidad, double costoHabilidad,
-         double tiempoEnfriamiento, double dañoHabilidad){
+         double tiempoEnfriamiento, double danoHabilidad, double curacion){
 
         this.nombreHabilidad = nombreHabilidad;
         this.costoHabilidad = costoHabilidad;
         this.tiempoEnfriamiento = tiempoEnfriamiento;
-        this.dañoHabilidad = dañoHabilidad;
+        this.danoHabilidad = danoHabilidad;
+        this.curacion = curacion;
 
     }
 
@@ -39,12 +41,20 @@ public class Habilidad {
         this.tiempoEnfriamiento = tiempoEnfriamiento;
     }
 
-    public double getDañoHabilidad() {
-        return dañoHabilidad;
+    public double getDanoHabilidad() {
+        return danoHabilidad;
     }
 
-    public void setDañoHabilidad(double dañoHabilidad) {
-        this.dañoHabilidad = dañoHabilidad;
+    public void setDanoHabilidad(double danoHabilidad) {
+        this.danoHabilidad = danoHabilidad;
+    }
+
+    public double getCuracion() {
+        return curacion;
+    }
+
+    public void setCuracion(double curacion) {
+        this.curacion = curacion;
     }
 
 }

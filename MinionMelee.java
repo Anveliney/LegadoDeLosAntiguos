@@ -1,7 +1,7 @@
 public class MinionMelee extends Minion {
 
     public MinionMelee() {
-        super("Super Minion", 10000, 10, 22, 30);
+        super("Super Minion", 10000, 10, 15, 10, 22, 30);
     }
 
 }

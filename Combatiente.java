@@ -2,29 +2,27 @@ import java.util.ArrayList;
 
 public class Combatiente extends Organico{
 
+    ArrayList<Habilidad> listaHabilidades;
+
     public Combatiente(){
         super();
     }
     
-    public Combatiente(String nombre, double vidaMaxima,
-        double golpeBasico, double oroOtorgado, 
-        double experienciaOtorgada
+    public Combatiente(String nombre, double vidaMaxima, double golpeBasico,
+        double armadura, double resistenciaMagica,
+        double oroOtorgado, double experienciaOtorgada
     ){
 
-        super(nombre, vidaMaxima, golpeBasico, oroOtorgado, 
+        super(nombre, vidaMaxima, golpeBasico,
+            armadura, resistenciaMagica, oroOtorgado, 
             experienciaOtorgada);
 
-    }
+            this.listaHabilidades = new ArrayList<>();
 
-    ArrayList<Habilidad> listaHabilidades;
-    ArrayList<Item> listaItem;
+    }
 
     public void agregarHabilidad(Habilidad habilidad){
-        listaHabilidades.add(habilidad);
-    }
-
-    public void agregarItem(Item item){
-        listaItem.add(item);
+        this.listaHabilidades.add(habilidad);
     }
 
     @Override
