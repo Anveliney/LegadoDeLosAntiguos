@@ -5,6 +5,7 @@ public class Organico {
     private double golpeBasico;
     private double armadura;
     private double resistenciaMagica;
+    private double esquivar;
     private double oroOtorgado;
     private double experienciaOtorgada;
     private double nivel;
@@ -25,6 +26,7 @@ public class Organico {
         this.vida = vidaMaxima;
         this.vidaMaxima = vidaMaxima;
         this.golpeBasico = golpeBasico;
+        this.esquivar = 0;
         this.experienciaOtorgada = experienciaOtorgada;
         this.oroOtorgado = oroOtorgado;
         this.nivel = 1;
@@ -101,5 +103,23 @@ public class Organico {
     public void setNivel(double nivel) {
         this.nivel = nivel;
     }
+
+    public double getArmadura() {
+        return armadura;
+    }
+
+    public void setArmadura(double armadura) {
+        this.armadura = armadura;
+    }
+
+    public double getResistenciaMagica() {
+        return resistenciaMagica;
+    }
+
+    public void setResistenciaMagica(double resistenciaMagica) {
+        this.resistenciaMagica = resistenciaMagica;
+    }
+
+
 
 }
