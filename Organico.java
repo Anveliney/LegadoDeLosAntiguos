@@ -9,6 +9,7 @@ public class Organico {
     private double oroOtorgado;
     private double experienciaOtorgada;
     private double nivel;
+    private boolean vivo;
 
     public Organico() {
 
@@ -30,6 +31,7 @@ public class Organico {
         this.experienciaOtorgada = experienciaOtorgada;
         this.oroOtorgado = oroOtorgado;
         this.nivel = 1;
+        this.vivo = true;
     }
 
     public void subirNivel(){
@@ -41,7 +43,7 @@ public class Organico {
     }
 
     public void morir(){
-        //pendiente
+        this.vivo = false;
     }
 
     public void revivir(){
@@ -118,6 +120,22 @@ public class Organico {
 
     public void setResistenciaMagica(double resistenciaMagica) {
         this.resistenciaMagica = resistenciaMagica;
+    }
+
+    public double getEsquivar() {
+        return esquivar;
+    }
+
+    public void setEsquivar(double esquivar) {
+        this.esquivar = esquivar;
+    }
+
+    public boolean getVivo() {
+        return vivo;
+    }
+
+    public void setVivo(boolean vivo) {
+        this.vivo = vivo;
     }
 
 

@@ -13,32 +13,34 @@ public class Main {
         MinionCannon MinionCannon1 = new MinionCannon();
         SistemaCombate Combate = new SistemaCombate();
 
+        //Campeones
+        Campeon akali = new Campeon("Akali", 700, 30, 25,
+            15, 300, 200);
+        Campeon veigar = new Campeon("Veigar", 650, 20, 20,
+            10, 300, 200);
+        Campeon fizz = new Campeon("Fizz", 650, 25, 20,
+            20, 300, 200);
+
 
         Combatiente red = new Monstruo("red", 2000, 50, 30,
             30, 100, 70);
-        Campeon akali = new Campeon("Akali", 700, 30, 25,
-            15, 300, 200);
-
-        
 
         Item trinidad = new Item("trinidad", 33,
          333, 33, 0, 0,
           0);
 
         akali.agregarItem(trinidad);
-        
-        System.out.println(akali.recibirGolpe(MinionCannon1.getGolpeBasico()));
-        Combate.atacar(akali, red);
+
+        System.out.println("===== COMBATE =====");
 
         while(runMain == true){
             System.out.println("Selecciona una opcion");
             System.out.println("Preciona 0 para pasar turno");
             System.out.println("Preciona 1 para para atacar");
             System.out.println("Preciona cualquier otro numero para" +
-            " finalizar el proceso");
+            " huir");
             int numero = scan.nextInt();
-            runMain = Combate.seleccionarOpcion(numero);
+            runMain = Combate.iniciarCombate(numero, akali, red);
         }
-        
     }
 }
