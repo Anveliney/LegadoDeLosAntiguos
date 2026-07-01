@@ -1,17 +1,16 @@
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
 
-        Scanner scan = new Scanner(System.in);
         boolean runMain = true;
         
         MinionCaster caster = new MinionCaster();
         MinionCaster caster2 = new MinionCaster();
         SuperMinion superMinion1 = new SuperMinion();
-        MinionMelee MinionMelee1 = new MinionMelee();
+        MinionMelee minionMelee = new MinionMelee();
         MinionCannon MinionCannon1 = new MinionCannon();
         SistemaCombate Combate = new SistemaCombate();
+        Equipo equipoAliado = new Equipo();
+        Equipo equipoEnemigo = new Equipo();
 
         //Campeones
         Campeon akali = new Campeon("Akali", 700, 30, 25,
@@ -22,8 +21,10 @@ public class Main {
             20, 300, 200);
 
 
-        Combatiente red = new Monstruo("red", 2000, 50, 30,
-            30, 100, 70);
+        Combatiente red = new Monstruo("red", 2000, 50,
+        30, 30, 100, 70);
+        Combatiente blue = new Monstruo("blue", 2200,
+         45, 20, 30, 100, 70);
 
         Item trinidad = new Item("trinidad", 33,
          333, 33, 0, 0,
@@ -31,16 +32,20 @@ public class Main {
 
         akali.agregarItem(trinidad);
 
+        equipoAliado.agregarPersonaje(akali);
+        equipoAliado.agregarPersonaje(fizz);
+        equipoAliado.agregarPersonaje(veigar);
+
+        equipoEnemigo.agregarPersonaje(red);
+        equipoEnemigo.agregarPersonaje(minionMelee);
+
+        equipoAliado.mostrarPersonaje();
+        equipoEnemigo.mostrarPersonaje();
+
         System.out.println("===== COMBATE =====");
 
         while(runMain == true){
-            System.out.println("Selecciona una opcion");
-            System.out.println("Preciona 0 para pasar turno");
-            System.out.println("Preciona 1 para para atacar");
-            System.out.println("Preciona cualquier otro numero para" +
-            " huir");
-            int numero = scan.nextInt();
-            runMain = Combate.iniciarCombate(numero, akali, red);
+            runMain = Combate.combatir(equipoAliado, equipoEnemigo);
         }
     }
 }
