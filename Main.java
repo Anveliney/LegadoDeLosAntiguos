@@ -1,3 +1,9 @@
+//Temporal, no me funes cesar :c
+import equipos.Equipo;
+import items.Item;
+import partida.Partida;
+import personajes.*;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -8,7 +14,9 @@ public class Main {
         SuperMinion superMinion1 = new SuperMinion();
         MinionMelee minionMelee = new MinionMelee();
         MinionCannon MinionCannon1 = new MinionCannon();
-        SistemaCombate Combate = new SistemaCombate();
+        Combatiente sett = new Combatiente();
+
+        Partida partida = new Partida();
         Equipo equipoAliado = new Equipo();
         Equipo equipoEnemigo = new Equipo();
 
@@ -21,7 +29,7 @@ public class Main {
             20, 300, 200);
 
 
-        Combatiente red = new Monstruo("red", 2000, 50,
+        Combatiente red = new Monstruo("red", 10, 50,
         30, 30, 100, 70);
         Combatiente blue = new Monstruo("blue", 2200,
          45, 20, 30, 100, 70);
@@ -45,7 +53,7 @@ public class Main {
         System.out.println("===== COMBATE =====");
 
         while(runMain == true){
-            runMain = Combate.combatir(equipoAliado, equipoEnemigo);
+            runMain = partida.generarPartida(equipoAliado, equipoEnemigo);
         }
     }
 }
