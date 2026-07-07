@@ -8,20 +8,43 @@ public class Partida {
     SistemaCombate combate = new SistemaCombate();
     SistemaTurnos turno = new SistemaTurnos();
 
-    public boolean generarPartida(Equipo jugador, Equipo IA){
+    public void generarPartida(Equipo jugador, Equipo IA){
          
-        boolean resultado;
+        boolean partidaActiva = true;
 
-        if (combate.verificarEquiposVivos(jugador, IA)) {
-            resultado = turno.turnoEquipo(jugador, IA);
+            while (partidaActiva) {
+
+                if (combate.verificarEquiposVivos(jugador, IA)) {
+                partidaActiva = turno.turnoEquipo(jugador, IA);
+
+                if (combate.verificarEquiposVivos(jugador, IA) && partidaActiva) {
+                    partidaActiva = turno.turnoEquipo(IA, jugador);
+                }
+                
+                }else{
+
+                partidaActiva = false;
+
+            }
+        }
+
+
+    }
+
+    public void ganarPartida(Equipo jugador, Equipo IA){
+
+        if (!(jugador.getEquipo() && IA.getEquipo())) {
+
+            System.out.println("Es un empate");
+
+        }else if (!jugador.getEquipo()) {
+
+            System.out.println(" Victoria!!");
+
         }else{
-            resultado = false;
-        }
-        if(combate.verificarEquiposVivos(jugador, IA)){
-            resultado = turno.turnoEquipo(IA, jugador);
-        }
 
-        return resultado;
-
+            System.out.println(" Derrota xD");
+            
+        }
     }
 }

@@ -46,5 +46,18 @@ public class Equipo {
         }
         return false;
     }
+
+    public int calcularVivos(){
+        int contador = 0;
+
+        for (int i = 0; i < equipoLista.size(); i++) {
+            if (equipoLista.get(i).getVivo()) {
+                contador++;
+            }    
+        }
+
+        return contador;
+        
+    }
 }
 

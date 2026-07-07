@@ -47,13 +47,8 @@ public class Main {
         equipoEnemigo.agregarPersonaje(red);
         equipoEnemigo.agregarPersonaje(minionMelee);
 
-        equipoAliado.mostrarPersonaje();
-        equipoEnemigo.mostrarPersonaje();
-
         System.out.println("===== COMBATE =====");
 
-        while(runMain == true){
-            runMain = partida.generarPartida(equipoAliado, equipoEnemigo);
-        }
+        partida.generarPartida(equipoAliado, equipoEnemigo);
     }
 }

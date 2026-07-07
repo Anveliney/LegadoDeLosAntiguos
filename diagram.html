@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diagrama UML del proyecto</title>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      securityLevel: 'loose',
+      themeVariables: {
+        primaryColor: '#1f2937',
+        primaryTextColor: '#f9fafb',
+        primaryBorderColor: '#60a5fa',
+        lineColor: '#9ca3af',
+        secondaryColor: '#111827',
+        tertiaryColor: '#374151'
+      }
+    });
+  </script>
+  <style>
+    body {
+      margin: 0;
+      padding: 24px;
+      background: #0f172a;
+      color: #f8fafc;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #111827;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+    h1 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+    .mermaid {
+      overflow: auto;
+      background: transparent;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Diagrama UML del proyecto</h1>
+    <div class="mermaid">
+%%{init: {'theme': 'dark'}}%%
+classDiagram
+    class Organico {
+        +double vida
+        +double vidaMaxima
+        +String nombre
+        +double golpeBasico
+        +double armadura
+        +double resistenciaMagica
+        +double esquivar
+        +double oroOtorgado
+        +double experienciaOtorgada
+        +double nivel
+        +boolean vivo
+        +subirNivel()
+        +recibirGolpe()
+        +morir()
+        +revivir()
+    }
+
+    class Combatiente {
+        +listaHabilidades
+        +agregarHabilidad()
+        +subirNivel()
+    }
+
+    class Campeon {
+        +double mana
+        +double critico
+        +double experienciaRequerida
+        +double experienciaActual
+        +listaItem
+        +agregarItem()
+        +curar()
+        +adquirirExperiencia()
+    }
+
+    class Monstruo {
+    }
+
+    class Minion {
+    }
+
+    class MinionCannon {
+    }
+
+    class MinionCaster {
+    }
+
+    class MinionMelee {
+    }
+
+    class SuperMinion {
+    }
+
+    class Equipo {
+        +equipoLista
+        +agregarPersonaje()
+        +getEquipo()
+        +getPersonaje()
+    }
+
+    class Partida {
+        +combate
+        +turno
+        +generarPartida()
+    }
+
+    class SistemaCombate {
+        +imprimirVida()
+        +verificarEquiposVivos()
+        +revisarCombatiente()
+        +atacar()
+        +permisoAtacar()
+    }
+
+    class SistemaTurnos {
+        +combate
+        +scan
+        +turnoEquipo()
+        +mostrarOpciones()
+        +pasarTurno()
+        +seleccionarObjetivo()
+        +mostrarObjetivos()
+        +indiceValido()
+    }
+
+    class Item {
+        +String nombreItem
+        +double danoItem
+        +double vidaItem
+        +double manaItem
+        +double criticoItem
+        +double armaduraItem
+        +double resistenciaMagicaItem
+    }
+
+    class Habilidad {
+        +String nombreHabilidad
+        +double costoHabilidad
+        +double tiempoEnfriamiento
+        +double danoHabilidad
+        +double curacion
+    }
+
+    class Tienda {
+        +listaItemsVenta
+        +agregarItemVenta()
+    }
+
+    class IA {
+        +atacar()
+    }
+
+    Organico <|-- Combatiente
+    Combatiente <|-- Campeon
+    Combatiente <|-- Monstruo
+    Organico <|-- Minion
+    Minion <|-- MinionCannon
+    Minion <|-- MinionCaster
+    Minion <|-- MinionMelee
+    Minion <|-- SuperMinion
+
+    Equipo --> Organico
+    Partida --> SistemaCombate
+    Partida --> SistemaTurnos
+    SistemaTurnos --> SistemaCombate
+    Campeon --> Item
+    Combatiente --> Habilidad
+    Tienda --> Item
+    IA --> Combatiente
+    </div>
+  </div>
+</body>
+</html>

@@ -3,6 +3,15 @@ import equipos.Equipo;
 import personajes.Organico;
 
 public class SistemaCombate { 
+
+    public void imprimirVida(Organico objetivo){
+        if(objetivo.getVida() > 0){
+            System.out.println("vida restante de " + objetivo.getNombre() + "es: " + objetivo.getVida());
+        }else{
+            objetivo.setVida(0);
+            System.out.println("vida restante de " + objetivo.getNombre() + " es: " + objetivo.getVida());
+        }
+    }
     
     public boolean verificarEquiposVivos(Equipo jugador, Equipo IA){
         
@@ -10,39 +19,33 @@ public class SistemaCombate {
         
     }
     
-    public boolean revisarCombatiente(Organico objetivo){
+    public void revisarCombatiente(Organico objetivo){
 
         if (objetivo.getVida() <= 0) {
 
                 objetivo.morir();
 
                 System.out.println(objetivo.getNombre() + " a muerto");
-                
-                return false;
 
-            }else{
-                return true;
             }
 
     }
 
-    public boolean atacar(Organico atacante, Organico objetivo){
+    public void atacar(Organico atacante, Organico objetivo){
             
         objetivo.recibirGolpe(atacante.getGolpeBasico());
         System.out.println( atacante.getNombre() + " atacó a " + objetivo.getNombre());
-        if (objetivo.getVida() > 0) {
-                System.out.println( "vida restante de " + objetivo.getNombre() + " " + objetivo.getVida());
-            }
-        return revisarCombatiente(objetivo);
+        System.out.println(objetivo.getNombre() + " recibio " + atacante.getGolpeBasico() + " de daño");
+        imprimirVida(objetivo);
+        revisarCombatiente(objetivo);
+        System.out.println("-----------------------------------------");
 
     }
 
-    public boolean permisoAtacar(Organico atacante, Organico objetivo){
+    public void permisoAtacar(Organico atacante, Organico objetivo){
        
         if ( atacante.getVivo() && objetivo.getVivo() ) {
-            return this.atacar(atacante, objetivo);
-        }else{
-            return  false;
+            atacar(atacante, objetivo);
         }
         
     }
