@@ -2,7 +2,7 @@ package personajes;
 import items.Item;
 import java.util.ArrayList;
 
-public class Campeon extends Combatiente{
+public class Campeon extends Combatiente implements INivelable{
 
     private double mana;
     private double critico;
@@ -39,15 +39,7 @@ public class Campeon extends Combatiente{
 
     @Override
     public void subirNivel(){
-            this.setNivel(this.getNivel() + 1);  
-    }
-
-    public void adquirirExperiencia(double experienciaAdquirida){
-        this.experienciaActual += experienciaAdquirida;
-        if (this.experienciaActual >= this.experienciaRequerida) {
-            this.experienciaRequerida += 500;
-            this.subirNivel();
-        }
+            setNivel(getNivel() + 1);  
     }
 
     public double getMana() {
@@ -81,8 +73,5 @@ public class Campeon extends Combatiente{
     public void setExperienciaActual(double experienciaActual) {
         this.experienciaActual = experienciaActual;
     }
-
-    
-    
     
 }

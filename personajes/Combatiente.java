@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Combatiente extends Organico{
 
     ArrayList<Habilidad> listaHabilidades;
+    private static final int MAX_HABILIDADES = 4;
 
     public Combatiente(){
         super();
@@ -24,7 +25,15 @@ public class Combatiente extends Organico{
     }
 
     public void agregarHabilidad(Habilidad habilidad){
-        this.listaHabilidades.add(habilidad);
+        if(listaHabilidades.size() <= MAX_HABILIDADES){
+            listaHabilidades.add(habilidad);
+        }
+    }
+
+    public void obtenerHabilidades(){
+        for(int i = 0; i < listaHabilidades.size(); i++){
+            System.out.println(listaHabilidades.get(i).getNombreHabilidad());
+        }
     }
 
     @Override

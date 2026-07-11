@@ -15,7 +15,7 @@ public class SistemaCombate {
     
     public boolean verificarEquiposVivos(Equipo jugador, Equipo IA){
         
-        return jugador.getEquipo() && IA.getEquipo();
+        return jugador.getEquipoVivo() && IA.getEquipoVivo();
         
     }
     

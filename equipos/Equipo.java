@@ -5,9 +5,12 @@ import personajes.Organico;
 public class Equipo {
     
     private ArrayList<Organico> equipoLista;
+    private String nombre;
 
-    public Equipo(){
+    public Equipo(String nombre){
+
         this.equipoLista = new ArrayList<>();
+        this.nombre = nombre;
     }
 
     public void agregarPersonaje(Organico personaje){
@@ -37,7 +40,15 @@ public class Equipo {
         return equipoLista.get(numero);
     }
 
-    public boolean getEquipo(){
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public boolean getEquipoVivo(){
         
         for (int i = 0; i < equipoLista.size(); i++) {
             if(equipoLista.get(i).getVivo()){
@@ -59,5 +70,6 @@ public class Equipo {
         return contador;
         
     }
+    
 }
 

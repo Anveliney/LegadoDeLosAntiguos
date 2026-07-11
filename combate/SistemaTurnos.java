@@ -115,7 +115,7 @@ public class SistemaTurnos {
 
     private boolean indiceValido(int numero, Equipo equipo) {
 
-        return numero >= 0 && numero < equipo.getTamañoLista();
+        return numero >= 0  && numero < equipo.getTamañoLista();
 
     }
 

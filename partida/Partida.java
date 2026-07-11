@@ -28,23 +28,33 @@ public class Partida {
             }
         }
 
+        ganarPartida(jugador, IA);
 
     }
 
     public void ganarPartida(Equipo jugador, Equipo IA){
 
-        if (!(jugador.getEquipo() && IA.getEquipo())) {
+        terminarCombate();
 
-            System.out.println("Es un empate");
+        if (!jugador.getEquipoVivo() && !IA.getEquipoVivo()) {
 
-        }else if (!jugador.getEquipo()) {
+            System.out.println(" Es un empate");
 
-            System.out.println(" Victoria!!");
+        }else if (!jugador.getEquipoVivo()) {
+
+            System.out.println("El ganador es " + IA.getNombre());
 
         }else{
 
-            System.out.println(" Derrota xD");
+           System.out.println("El ganador es " + jugador.getNombre());
             
         }
+        
+    }
+
+    public void terminarCombate(){
+        System.out.println("=========================\n" + 
+                            "FIN DEL COMBATE\n" + 
+                            "=========================");
     }
 }

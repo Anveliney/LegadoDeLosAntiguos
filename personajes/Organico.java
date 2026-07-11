@@ -1,5 +1,7 @@
 package personajes;
-public class Organico {
+
+public abstract class Organico implements IAtacante, IAtacable {
+
     private double vida;
     private double vidaMaxima;
     private String nombre;
@@ -15,7 +17,6 @@ public class Organico {
     public Organico() {
 
     }
-
 
     public Organico(String nombre) {
         this.nombre = nombre;
@@ -35,14 +36,14 @@ public class Organico {
         this.vivo = true;
     }
 
-    public void subirNivel(){
-        System.out.println("Subir de nivel de Organico");   
-    }
+    public abstract void subirNivel();
 
+    @Override
     public double recibirGolpe(double golpe){
         return this.vida -= golpe;
     }
 
+    @Override
     public void morir(){
         this.vivo = false;
     }
@@ -75,6 +76,7 @@ public class Organico {
         this.nombre = nombre;
     }
 
+    @Override
     public double getGolpeBasico() {
         return golpeBasico;
     }
@@ -131,6 +133,7 @@ public class Organico {
         this.esquivar = esquivar;
     }
 
+    @Override
     public boolean getVivo() {
         return vivo;
     }

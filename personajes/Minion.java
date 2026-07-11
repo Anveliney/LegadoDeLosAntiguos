@@ -14,4 +14,8 @@ public class Minion extends Organico {
             resistenciaMagica, oroOtorgado, experienciaOtorgada);
     }
 
+    @Override
+    public void subirNivel(){
+        
+    }
 }
