@@ -1,37 +1,35 @@
 package habilidades;
+
 public class Habilidad {
-    
-    private String nombreHabilidad;
-    private double costoHabilidad;
+
+    private String nombre;
+    private double costo;
     private double tiempoEnfriamiento;
-    private double danoHabilidad;
+    private double dano;
     private double curacion;
 
-    public Habilidad(String nombreHabilidad, double costoHabilidad,
-         double tiempoEnfriamiento, double danoHabilidad, double curacion){
+    public Habilidad(String nombre, double dano, double curacion) {
 
-        this.nombreHabilidad = nombreHabilidad;
-        this.costoHabilidad = costoHabilidad;
-        this.tiempoEnfriamiento = tiempoEnfriamiento;
-        this.danoHabilidad = danoHabilidad;
+        this.nombre = nombre;
+        this.dano = dano;
         this.curacion = curacion;
 
     }
 
-    public String getNombreHabilidad() {
-        return nombreHabilidad;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombreHabilidad(String nombreHabilidad) {
-        this.nombreHabilidad = nombreHabilidad;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public double getCostoHabilidad() {
-        return costoHabilidad;
+    public double getCosto() {
+        return costo;
     }
 
-    public void setCostoHabilidad(double costoHabilidad) {
-        this.costoHabilidad = costoHabilidad;
+    public void setCosto(double costo) {
+        this.costo = costo;
     }
 
     public double getTiempoEnfriamiento() {
@@ -42,12 +40,12 @@ public class Habilidad {
         this.tiempoEnfriamiento = tiempoEnfriamiento;
     }
 
-    public double getDanoHabilidad() {
-        return danoHabilidad;
+    public double getDano() {
+        return dano;
     }
 
-    public void setDanoHabilidad(double danoHabilidad) {
-        this.danoHabilidad = danoHabilidad;
+    public void setDano(double dano) {
+        this.dano = dano;
     }
 
     public double getCuracion() {

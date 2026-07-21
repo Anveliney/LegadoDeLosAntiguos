@@ -31,21 +31,21 @@ public class SistemaCombate {
 
     }
 
-    public void atacar(Organico atacante, Organico objetivo){
+    public void atacar(Organico atacante, double dano, Organico objetivo){
             
-        objetivo.recibirGolpe(atacante.getGolpeBasico());
+        objetivo.recibirGolpe(dano);
         System.out.println( atacante.getNombre() + " atacó a " + objetivo.getNombre());
-        System.out.println(objetivo.getNombre() + " recibio " + atacante.getGolpeBasico() + " de daño");
+        System.out.println(objetivo.getNombre() + " recibio " + dano + " de daño");
         imprimirVida(objetivo);
         revisarCombatiente(objetivo);
         System.out.println("-----------------------------------------");
 
     }
 
-    public void permisoAtacar(Organico atacante, Organico objetivo){
+    public void permisoAtacar(Organico atacante, double dano, Organico objetivo){
        
         if ( atacante.getVivo() && objetivo.getVivo() ) {
-            atacar(atacante, objetivo);
+            atacar(atacante, dano, objetivo);
         }
         
     }

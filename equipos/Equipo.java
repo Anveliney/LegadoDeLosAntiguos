@@ -1,4 +1,5 @@
 package equipos;
+import IAs.ControladorIA;
 import java.util.ArrayList;
 import personajes.Organico;
 
@@ -6,11 +7,20 @@ public class Equipo {
     
     private ArrayList<Organico> equipoLista;
     private String nombre;
+    private boolean IA;
+    private ControladorIA controlador;
 
-    public Equipo(String nombre){
+    public Equipo(){}
+
+    public Equipo(String nombre, boolean IA){
 
         this.equipoLista = new ArrayList<>();
         this.nombre = nombre;
+        this.IA = IA;
+
+        if (this.IA) {
+            controlador = new ControladorIA();
+        }
     }
 
     public void agregarPersonaje(Organico personaje){
@@ -32,7 +42,7 @@ public class Equipo {
         this.equipoLista = equipoLista;
     }
 
-    public int getTamañoLista(){
+    public int getTamanoLista(){
         return equipoLista.size();
     }
 
@@ -56,6 +66,22 @@ public class Equipo {
             }
         }
         return false;
+    }
+
+    public boolean getIA() {
+        return IA;
+    }
+
+    public void setIA(boolean IA) {
+        this.IA = IA;
+    }
+
+    public ControladorIA getControlador() {
+        return controlador;
+    }
+
+    public void setControlador(ControladorIA controlador) {
+        this.controlador = controlador;
     }
 
     public int calcularVivos(){

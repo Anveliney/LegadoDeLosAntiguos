@@ -30,10 +30,18 @@ public class Combatiente extends Organico{
         }
     }
 
-    public void obtenerHabilidades(){
+    public Habilidad getHabilidad(int numero){
+        return listaHabilidades.get(numero);
+    }
+
+    public void mostrarListaHabilidad(){
         for(int i = 0; i < listaHabilidades.size(); i++){
-            System.out.println(listaHabilidades.get(i).getNombreHabilidad());
+            System.out.println(i + " - " + listaHabilidades.get(i).getNombre());
         }
+    }
+
+    public int getTamanoListaHabilidad(){
+        return listaHabilidades.size();
     }
 
     @Override

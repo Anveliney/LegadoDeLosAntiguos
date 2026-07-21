@@ -18,27 +18,27 @@ public class Main {
         Campeon prueba = new Campeon();
         
         Partida partida = new Partida();
-        Equipo equipoAliado = new Equipo("Equipo azul");
-        Equipo equipoEnemigo = new Equipo("Equipo rojo");
+        Equipo equipoAliado = new Equipo("Equipo azul", false);
+        Equipo equipoEnemigo = new Equipo("Equipo rojo", true);
 
         //Campeones
-        Campeon akali = new Campeon("Akali", 700, 30, 25,
+        Campeon akali = new Campeon("Akali", 500, 30, 25,
             15, 300, 200);
         IAtacante atacante = akali;
 
-        Campeon veigar = new Campeon("Veigar", 650, 20, 20,
+        Campeon veigar = new Campeon("Veigar", 400, 20, 20,
             10, 300, 200);
         Campeon fizz = new Campeon("Fizz", 650, 25, 20,
             20, 300, 200);
 
         //Equipo enemigo
-        Combatiente red = new Monstruo("red", 10, 50,
+        Combatiente red = new Monstruo("red", 1000, 50,
         30, 30, 100, 70);
         Combatiente blue = new Monstruo("blue", 2200,
          45, 20, 30, 100, 70);
         
         //Habilidades
-        Habilidad rafagaCincoFilos = new Habilidad("Rafaga de los 5 filos", 100, 100, 100, 100);
+        Habilidad rafagaCincoFilos = new Habilidad("Rafaga de los 5 filos", 300, 0);
 
         akali.agregarHabilidad(rafagaCincoFilos);
         
