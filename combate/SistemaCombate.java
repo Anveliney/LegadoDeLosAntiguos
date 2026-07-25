@@ -6,7 +6,7 @@ public class SistemaCombate {
 
     public void imprimirVida(Organico objetivo){
         if(objetivo.getVida() > 0){
-            System.out.println("vida restante de " + objetivo.getNombre() + "es: " + objetivo.getVida());
+            System.out.println("vida restante de " + objetivo.getNombre() + " es: " + objetivo.getVida());
         }else{
             objetivo.setVida(0);
             System.out.println("vida restante de " + objetivo.getNombre() + " es: " + objetivo.getVida());

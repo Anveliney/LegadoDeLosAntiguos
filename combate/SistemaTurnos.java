@@ -8,6 +8,7 @@ import personajes.Organico;
 public class SistemaTurnos {
 
     private final SistemaCombate combate = new SistemaCombate();
+    private final SistemaHabilidades habilidades = new SistemaHabilidades();
     private final Scanner scan = new Scanner(System.in);
 
     public boolean turnoEquipo(Equipo equipoTurno, Equipo equipoObjetivo) {
@@ -26,7 +27,7 @@ public class SistemaTurnos {
 
             mostrarOpciones();
 
-            int opcion = obtenerNumeroAccion(equipoTurno);
+            int opcion = obtenerNumeroAccion(equipoTurno, personaje);
             
                 switch (opcion) {
 
@@ -38,7 +39,7 @@ public class SistemaTurnos {
                 //ATAQUE
                 case 1 ->{
                     double dano = personaje.getGolpeBasico();
-                    turnoFinalizado = turnoAtaque(equipoTurno, personaje, dano, equipoObjetivo);
+                    turnoFinalizado = seleccionarObjetivo(equipoTurno, personaje, dano, equipoObjetivo);
                 } 
                 
                 case 2 -> turnoFinalizado = turnoHabilidad(equipoTurno, personaje, equipoObjetivo);
@@ -87,36 +88,86 @@ public class SistemaTurnos {
         System.out.println("-----------------------------------------");
     }
 
-    //TIPOS DE TURNOS
+    //-------------------------------------------------------------------//
 
     private boolean turnoHabilidad(Equipo equipoTurno, Organico personaje,
                                      Equipo equipoObjetivo){
 
-        if(personaje instanceof Combatiente combatiente){
+       if (!(personaje instanceof Combatiente combatiente)) {
 
-            mostrarHabilidades(combatiente);
-            separador();
+        System.out.println("Un Minion no puede usar habilidades");
+        return false;
 
-            int numero = leerNumero();
-            if (!indiceValido(numero, combatiente.getTamanoListaHabilidad())) {
+        }
 
-                System.out.println("Regresando...");
-                separador();
-                return false;
+        int numero;
 
-            }
-            Habilidad habilidad = combatiente.getHabilidad(numero);
-            double dano = habilidad.getDano();
-            return turnoAtaque(equipoTurno, personaje, dano, equipoObjetivo);
-            
+        if (equipoTurno.getIA()) {
+
+        numero = equipoTurno.getControlador().elegirHechizo(combatiente);
+
+        } else {
+
+        mostrarHabilidades(combatiente);
+        separador();
+        numero = leerNumero();
+
+        }
+        
+        Habilidad habilidad = seleccionarHabilidad(numero, combatiente);
+        if(habilidad == null) return false;
+        
+        double dano = habilidad.getDano();
+
+        if(seleccionarObjetivo(equipoTurno, personaje, dano, equipoObjetivo)){
+
+            habilidades.consumirRecurso(habilidad, combatiente);
+
+            return true;
+
         }else{
-            System.out.println("Un Minion no puede usar habilidades");
+
             return false;
         }
         
     }
 
-    private boolean turnoAtaque(Equipo equipoAtacante, Organico atacante,
+    private Habilidad seleccionarHabilidad(int numero, Combatiente combatiente){
+
+        Habilidad habilidad = null;
+
+        while(true){
+
+            if (!indiceValido(numero, combatiente.getTamanoListaHabilidad())) {
+
+                System.out.println("Regresando...");
+                separador();
+                return habilidad;
+
+                    }
+                
+            habilidad = combatiente.getHabilidad(numero);
+
+            if (!(habilidades.permitirUsarHabilidad(habilidad, combatiente))) {
+
+                System.out.println("No se cuenta con suficiente mana");
+                System.out.println("Escoge otra habilidad o regresa");
+                numero = leerNumero();
+
+                continue;
+            }
+
+            break;
+
+        }
+
+        return  habilidad;
+
+    }
+
+    //-----------------------------------------------------------------//
+
+    private boolean seleccionarObjetivo(Equipo equipoAtacante, Organico atacante,
                                         double dano, Equipo equipoObjetivo) {
 
             mostrarObjetivos(equipoObjetivo);
@@ -203,11 +254,13 @@ public class SistemaTurnos {
 
     //OBTENCION DE ELECCIONES
 
-    public int obtenerNumeroAccion(Equipo equipoTurno){
+    public int obtenerNumeroAccion(Equipo equipoTurno, Organico personaje){
+
+        
 
         if (equipoTurno.getIA()) {
 
-                    return equipoTurno.getControlador().elegirAccion();
+                    return equipoTurno.getControlador().elegirAccion(equipoTurno, personaje);
 
                 }else{
 

@@ -1,12 +1,10 @@
 package partida;
-import combate.SistemaCombate;
-import combate.SistemaTurnos;
+import combate.SistemaRondas;
 import equipos.Equipo;
 
 public class Partida {
     
-    SistemaCombate combate = new SistemaCombate();
-    SistemaTurnos turno = new SistemaTurnos();
+   private final SistemaRondas sistemaRondas = new SistemaRondas();
 
     public void generarPartida(Equipo jugador, Equipo IA){
          
@@ -14,23 +12,14 @@ public class Partida {
 
             while (partidaActiva) {
 
-                if (combate.verificarEquiposVivos(jugador, IA)) {
-                partidaActiva = turno.turnoEquipo(jugador, IA);
-
-                if (combate.verificarEquiposVivos(jugador, IA) && partidaActiva) {
-                    partidaActiva = turno.turnoEquipo(IA, jugador);
-                }
-                
-                }else{
-
-                partidaActiva = false;
+                partidaActiva = sistemaRondas.obtenerRonda(jugador, IA);
 
             }
+
+            ganarPartida(jugador, IA);
+
         }
 
-        ganarPartida(jugador, IA);
-
-    }
 
     public void ganarPartida(Equipo jugador, Equipo IA){
 
@@ -53,8 +42,10 @@ public class Partida {
     }
 
     public void terminarCombate(){
-        System.out.println("=========================\n" + 
-                            "FIN DEL COMBATE\n" + 
-                            "=========================");
+        System.out.println("""
+                           =========================
+                           FIN DEL COMBATE
+                           =========================
+                        """);
     }
 }

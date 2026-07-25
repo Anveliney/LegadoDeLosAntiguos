@@ -16,14 +16,15 @@ public class Campeon extends Combatiente implements INivelable{
 
     public Campeon(String nombre, double vidaMaxima, double golpeBasico,
         double armadura, double resistenciaMagica,
-        double oroOtorgado, double experienciaOtorgada
+        double oroOtorgado, double experienciaOtorgada,
+        double recurso
     ){
         super(nombre, vidaMaxima, golpeBasico, armadura,
             resistenciaMagica, oroOtorgado,
-            experienciaOtorgada);
+            experienciaOtorgada, recurso);
 
             this.critico = 0;
-            this.mana = 200;
+            this.mana = 1000;
             this.experienciaActual = 0;
             this.experienciaRequerida = 500;
             this.listaItem = new ArrayList<>();

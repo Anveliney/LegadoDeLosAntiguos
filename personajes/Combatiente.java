@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Combatiente extends Organico{
 
+    private double recursoMax;
+    private double recurso;
     ArrayList<Habilidad> listaHabilidades;
     private static final int MAX_HABILIDADES = 4;
 
@@ -13,7 +15,8 @@ public class Combatiente extends Organico{
     
     public Combatiente(String nombre, double vidaMaxima, double golpeBasico,
         double armadura, double resistenciaMagica,
-        double oroOtorgado, double experienciaOtorgada
+        double oroOtorgado, double experienciaOtorgada,
+        double recurso
     ){
 
         super(nombre, vidaMaxima, golpeBasico,
@@ -21,6 +24,8 @@ public class Combatiente extends Organico{
             experienciaOtorgada);
 
             this.listaHabilidades = new ArrayList<>();
+            this.recursoMax = recurso;
+            this.recurso = recurso;
 
     }
 
@@ -44,10 +49,25 @@ public class Combatiente extends Organico{
         return listaHabilidades.size();
     }
 
+    public double getRecursoMax() {
+        return recursoMax;
+    }
+
+    public void setRecursoMax(double recursoMax) {
+        this.recursoMax = recursoMax;
+    }
+
+    public double getRecurso() {
+        return recurso;
+    }
+
+    public void setRecurso(double recurso) {
+        this.recurso = recurso;
+    }
+
     @Override
     public void subirNivel(){
         System.out.println("Subir de nivel de Combatiente");
     }
-
 
 }

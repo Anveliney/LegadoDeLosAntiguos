@@ -8,11 +8,12 @@ public class Habilidad {
     private double dano;
     private double curacion;
 
-    public Habilidad(String nombre, double dano, double curacion) {
+    public Habilidad(String nombre, double dano, double curacion, double costo) {
 
         this.nombre = nombre;
         this.dano = dano;
         this.curacion = curacion;
+        this.costo = costo;
 
     }
 

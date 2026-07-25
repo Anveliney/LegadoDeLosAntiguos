@@ -15,7 +15,6 @@ public class Main {
         MinionMelee minionMelee = new MinionMelee();
         MinionCannon MinionCannon1 = new MinionCannon();
         Combatiente sett = new Combatiente();
-        Campeon prueba = new Campeon();
         
         Partida partida = new Partida();
         Equipo equipoAliado = new Equipo("Equipo azul", false);
@@ -23,24 +22,30 @@ public class Main {
 
         //Campeones
         Campeon akali = new Campeon("Akali", 500, 30, 25,
-            15, 300, 200);
+            15, 300, 200, 100);
         IAtacante atacante = akali;
 
         Campeon veigar = new Campeon("Veigar", 400, 20, 20,
-            10, 300, 200);
+            10, 300, 200, 1000);
         Campeon fizz = new Campeon("Fizz", 650, 25, 20,
-            20, 300, 200);
+            20, 300, 200, 700);
 
         //Equipo enemigo
-        Combatiente red = new Monstruo("red", 1000, 50,
-        30, 30, 100, 70);
-        Combatiente blue = new Monstruo("blue", 2200,
-         45, 20, 30, 100, 70);
+        Monstruo dragon = new Monstruo("Dragon", 1000, 50,
+        30, 30, 100, 70, 100);
+        Monstruo blue = new Monstruo("blue", 2200,
+         45, 20, 30, 100, 70, 100);
         
         //Habilidades
-        Habilidad rafagaCincoFilos = new Habilidad("Rafaga de los 5 filos", 300, 0);
+        Habilidad rafagaCincoFilos = new Habilidad("Rafaga de los 5 filos", 300, 0, 120);
+        Habilidad ataqueMaligno = new Habilidad("Ataque maligno", 70, 0, 60);
+        Habilidad alientoFuego = new Habilidad("Aliento de Fuego", 200, 0, 20);
+        Habilidad pisada = new Habilidad("Pisada", 300, 0, 10);
 
         akali.agregarHabilidad(rafagaCincoFilos);
+        veigar.agregarHabilidad(ataqueMaligno);
+        dragon.agregarHabilidad(alientoFuego);
+        dragon.agregarHabilidad(pisada);
         
          //Items
         Item trinidad = new Item("trinidad", 33,
@@ -55,7 +60,7 @@ public class Main {
         equipoAliado.agregarPersonaje(fizz);
         equipoAliado.agregarPersonaje(veigar);
 
-        equipoEnemigo.agregarPersonaje(red);
+        equipoEnemigo.agregarPersonaje(dragon);
         equipoEnemigo.agregarPersonaje(minionMelee);
 
         System.out.println("===== COMBATE =====");

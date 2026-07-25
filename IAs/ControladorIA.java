@@ -1,11 +1,43 @@
 package IAs;
+import combate.SistemaHabilidades;
 import equipos.Equipo;
+import personajes.Combatiente;
 import personajes.Organico;
 
 public class ControladorIA {
 
-    public int elegirAccion(){
-        return 1;
+    private final SistemaHabilidades habilidad = new SistemaHabilidades();
+
+    public int elegirAccion(Equipo equipoTurno, Organico personaje){
+        
+        if (personaje instanceof Combatiente combatiente && habilidad.permitirLanzarHechizos(combatiente)) {
+
+            return 2;
+            
+        }else{
+
+            return 1;
+        }
+    }
+
+    public int elegirHechizo(Combatiente combatiente){
+
+        int indice = 0;
+        double mejorDano = 0;
+        
+        for(int i = 0; i < combatiente.getTamanoListaHabilidad(); i++){
+            
+            double dano = combatiente.getHabilidad(i).getDano();
+
+            if(dano > mejorDano && habilidad.permitirUsarHabilidad(combatiente.getHabilidad(i), combatiente)){
+                mejorDano = dano;
+                indice = i;
+            }
+            
+        }
+
+        return indice;
+
     }
 
     public int elegirObjetivo(Equipo equipoObjetivo){
