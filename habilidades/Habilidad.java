@@ -1,4 +1,4 @@
-package habilidades;
+package org.example.habilidades;
 
 public class Habilidad {
 

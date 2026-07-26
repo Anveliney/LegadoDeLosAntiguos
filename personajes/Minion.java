@@ -1,4 +1,4 @@
-package personajes;
+package org.example.personajes;
 public class Minion extends Organico {
 
     public Minion(){

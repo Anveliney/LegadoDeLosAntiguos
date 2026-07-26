@@ -1,8 +1,9 @@
-import equipos.Equipo;
-import habilidades.Habilidad;
-import items.Item;
-import partida.Partida;
-import personajes.*;
+package org.example;
+import org.example.equipos.Equipo;
+import org.example.habilidades.Habilidad;
+import org.example.items.Item;
+import org.example.partida.Partida;
+import org.example.personajes.*;
 
 public class Main {
     public static void main(String[] args) {

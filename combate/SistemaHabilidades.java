@@ -1,7 +1,7 @@
-package combate;
+package org.example.combate;
 
-import habilidades.Habilidad;
-import personajes.Combatiente;
+import org.example.habilidades.Habilidad;
+import org.example.personajes.Combatiente;
 
 public class SistemaHabilidades {
     

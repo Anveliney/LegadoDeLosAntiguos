@@ -1,5 +1,5 @@
-package personajes;
-import items.Item;
+package org.example.personajes;
+import org.example.items.Item;
 import java.util.ArrayList;
 
 public class Campeon extends Combatiente implements INivelable{

@@ -1,4 +1,4 @@
-package items;
+package org.example.items;
 public class Item {
     
     private String nombreItem;

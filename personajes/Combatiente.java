@@ -1,5 +1,5 @@
-package personajes;
-import habilidades.Habilidad;
+package org.example.personajes;
+import org.example.habilidades.Habilidad;
 import java.util.ArrayList;
 
 public class Combatiente extends Organico{

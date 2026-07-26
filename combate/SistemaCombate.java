@@ -1,6 +1,6 @@
-package combate;
-import equipos.Equipo;
-import personajes.Organico;
+package org.example.combate;
+import org.example.equipos.Equipo;
+import org.example.personajes.Organico;
 
 public class SistemaCombate { 
 

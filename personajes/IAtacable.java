@@ -1,4 +1,4 @@
-package personajes;
+package org.example.personajes;
 
 public interface IAtacable{
 

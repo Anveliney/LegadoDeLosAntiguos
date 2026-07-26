@@ -1,8 +1,8 @@
-package IAs;
-import combate.SistemaHabilidades;
-import equipos.Equipo;
-import personajes.Combatiente;
-import personajes.Organico;
+package org.example.IAs;
+import org.example.combate.SistemaHabilidades;
+import org.example.equipos.Equipo;
+import org.example.personajes.Combatiente;
+import org.example.personajes.Organico;
 
 public class ControladorIA {
 

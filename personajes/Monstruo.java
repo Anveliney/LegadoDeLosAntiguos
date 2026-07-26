@@ -1,4 +1,4 @@
-package personajes;
+package org.example.personajes;
 public class Monstruo extends Combatiente{
 
     public Monstruo(String nombre, double vidaMaxima, double golpeBasico,
