@@ -35,6 +35,14 @@ public class Combatiente extends Organico{
         }
     }
 
+    public void revisarEnfriamiento(Habilidad habilidad){
+        for(int i = 0; i < listaHabilidades.size(); i++){
+            if(!habilidad.getDisponibleEnfriamiento()){
+                habilidad.
+            }
+        }
+    }
+
     public Habilidad getHabilidad(int numero){
         return listaHabilidades.get(numero);
     }

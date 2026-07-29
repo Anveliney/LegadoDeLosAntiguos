@@ -4,15 +4,10 @@ import java.util.ArrayList;
 
 public class Campeon extends Combatiente implements INivelable{
 
-    private double mana;
     private double critico;
     private double experienciaRequerida;
     private double experienciaActual;
     ArrayList<Item> listaItem;
-
-    public Campeon(){
-        super();
-    }
 
     public Campeon(String nombre, double vidaMaxima, double golpeBasico,
         double armadura, double resistenciaMagica,
@@ -24,10 +19,13 @@ public class Campeon extends Combatiente implements INivelable{
             experienciaOtorgada, recurso);
 
             this.critico = 0;
-            this.mana = 1000;
             this.experienciaActual = 0;
             this.experienciaRequerida = 500;
             this.listaItem = new ArrayList<>();
+    }
+
+    public Campeon(){
+        super();
     }
 
     public void agregarItem(Item item){
@@ -41,14 +39,6 @@ public class Campeon extends Combatiente implements INivelable{
     @Override
     public void subirNivel(){
             setNivel(getNivel() + 1);  
-    }
-
-    public double getMana() {
-        return mana;
-    }
-
-    public void setMana(double mana) {
-        this.mana = mana;
     }
 
     public double getCritico() {

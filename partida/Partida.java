@@ -1,5 +1,5 @@
 package org.example.partida;
-import org.example.combate.SistemaRondas;
+import org.example.Sistemas.SistemaRondas;
 import org.example.equipos.Equipo;
 
 public class Partida {

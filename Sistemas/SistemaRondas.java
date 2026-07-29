@@ -1,4 +1,4 @@
-package org.example.combate;
+package org.example.Sistemas;
 import org.example.equipos.Equipo;
 
 public class SistemaRondas{

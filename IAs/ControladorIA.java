@@ -1,5 +1,5 @@
 package org.example.IAs;
-import org.example.combate.SistemaHabilidades;
+import org.example.Sistemas.SistemaHabilidades;
 import org.example.equipos.Equipo;
 import org.example.personajes.Combatiente;
 import org.example.personajes.Organico;
@@ -9,7 +9,8 @@ public class ControladorIA {
     private final SistemaHabilidades habilidad = new SistemaHabilidades();
 
     public int elegirAccion(Equipo equipoTurno, Organico personaje){
-        
+
+        /*
         if (personaje instanceof Combatiente combatiente && habilidad.permitirLanzarHechizos(combatiente)) {
 
             return 2;
@@ -18,6 +19,10 @@ public class ControladorIA {
 
             return 1;
         }
+
+         */
+        return 1;
+
     }
 
     public int elegirHechizo(Combatiente combatiente){

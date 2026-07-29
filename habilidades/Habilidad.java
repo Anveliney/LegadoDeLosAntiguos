@@ -5,15 +5,21 @@ public class Habilidad {
     private String nombre;
     private double costo;
     private double tiempoEnfriamiento;
+    private boolean disponibleEnfriamiento;
+    private double enfriamientoRestante;
     private double dano;
     private double curacion;
 
-    public Habilidad(String nombre, double dano, double curacion, double costo) {
+    public Habilidad(){}
+
+    public Habilidad(String nombre, double dano, double curacion, double costo, double tiempoEnfriamiento) {
 
         this.nombre = nombre;
         this.dano = dano;
         this.curacion = curacion;
         this.costo = costo;
+        this.tiempoEnfriamiento = tiempoEnfriamiento;
+        this.disponibleEnfriamiento = true;
 
     }
 
@@ -57,4 +63,19 @@ public class Habilidad {
         this.curacion = curacion;
     }
 
+    public boolean getDisponibleEnfriamiento() {
+        return disponibleEnfriamiento;
+    }
+
+    public void setDisponibleEnfriamiento(boolean disponibleEnfriamiento) {
+        this.disponibleEnfriamiento = disponibleEnfriamiento;
+    }
+
+    public double getEnfriamientoRestante() {
+        return enfriamientoRestante;
+    }
+
+    public void setEnfriamientoRestante(double enfriamiento) {
+        this.enfriamientoRestante = enfriamiento;
+    }
 }
