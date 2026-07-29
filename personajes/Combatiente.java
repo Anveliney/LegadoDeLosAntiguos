@@ -1,5 +1,5 @@
-package personajes;
-import habilidades.Habilidad;
+package org.example.personajes;
+import org.example.habilidades.Habilidad;
 import java.util.ArrayList;
 
 public class Combatiente extends Organico{
@@ -32,6 +32,14 @@ public class Combatiente extends Organico{
     public void agregarHabilidad(Habilidad habilidad){
         if(listaHabilidades.size() <= MAX_HABILIDADES){
             listaHabilidades.add(habilidad);
+        }
+    }
+
+    public void revisarEnfriamiento(Habilidad habilidad){
+        for(int i = 0; i < listaHabilidades.size(); i++){
+            if(!habilidad.getDisponibleEnfriamiento()){
+                habilidad.
+            }
         }
     }
 

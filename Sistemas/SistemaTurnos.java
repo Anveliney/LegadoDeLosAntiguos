@@ -1,9 +1,9 @@
-package combate;
-import equipos.Equipo;
-import habilidades.Habilidad;
+package org.example.Sistemas;
+import org.example.equipos.Equipo;
+import org.example.habilidades.Habilidad;
 import java.util.Scanner;
-import personajes.Combatiente;
-import personajes.Organico;
+import org.example.personajes.Combatiente;
+import org.example.personajes.Organico;
 
 public class SistemaTurnos {
 
@@ -121,7 +121,7 @@ public class SistemaTurnos {
 
         if(seleccionarObjetivo(equipoTurno, personaje, dano, equipoObjetivo)){
 
-            habilidades.consumirRecurso(habilidad, combatiente);
+            habilidades.usarHabilidad(habilidad, combatiente);
 
             return true;
 

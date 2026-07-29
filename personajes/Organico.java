@@ -1,4 +1,4 @@
-package personajes;
+package org.example.personajes;
 
 public abstract class Organico implements IAtacante, IAtacable {
 

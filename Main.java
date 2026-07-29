@@ -1,72 +1,74 @@
-import equipos.Equipo;
-import habilidades.Habilidad;
-import items.Item;
-import partida.Partida;
-import personajes.*;
+package org.example;
+
+
+import org.example.DAO.CampeonDAO;
+import org.example.DAO.MonstruoDAO;
+import org.example.equipos.Equipo;
+import org.example.partida.Partida;
+import org.example.personajes.Campeon;
+import org.example.personajes.Monstruo;
+import org.example.habilidades.Habilidad;
+
 
 public class Main {
+
+
     public static void main(String[] args) {
 
-        boolean runMain = true;
-        
-        MinionCaster caster = new MinionCaster();
-        MinionCaster caster2 = new MinionCaster();
-        SuperMinion superMinion1 = new SuperMinion();
-        MinionMelee minionMelee = new MinionMelee();
-        MinionCannon MinionCannon1 = new MinionCannon();
-        Combatiente sett = new Combatiente();
-        
-        Partida partida = new Partida();
-        Equipo equipoAliado = new Equipo("Equipo azul", false);
-        Equipo equipoEnemigo = new Equipo("Equipo rojo", true);
 
-        //Campeones
-        Campeon akali = new Campeon("Akali", 500, 30, 25,
-            15, 300, 200, 100);
-        IAtacante atacante = akali;
+        CampeonDAO campeonDAO = new CampeonDAO();
+        MonstruoDAO monstruoDAO = new MonstruoDAO();
 
-        Campeon veigar = new Campeon("Veigar", 400, 20, 20,
-            10, 300, 200, 1000);
-        Campeon fizz = new Campeon("Fizz", 650, 25, 20,
-            20, 300, 200, 700);
+        Habilidad cincoFilos = new Habilidad("Rafaga de los 5 filos",
+                100, 0,20, 3);
 
-        //Equipo enemigo
-        Monstruo dragon = new Monstruo("Dragon", 1000, 50,
-        30, 30, 100, 70, 100);
-        Monstruo blue = new Monstruo("blue", 2200,
-         45, 20, 30, 100, 70, 100);
-        
-        //Habilidades
-        Habilidad rafagaCincoFilos = new Habilidad("Rafaga de los 5 filos", 300, 0, 120);
-        Habilidad ataqueMaligno = new Habilidad("Ataque maligno", 70, 0, 60);
-        Habilidad alientoFuego = new Habilidad("Aliento de Fuego", 200, 0, 20);
-        Habilidad pisada = new Habilidad("Pisada", 300, 0, 10);
 
-        akali.agregarHabilidad(rafagaCincoFilos);
-        veigar.agregarHabilidad(ataqueMaligno);
-        dragon.agregarHabilidad(alientoFuego);
-        dragon.agregarHabilidad(pisada);
-        
-         //Items
-        Item trinidad = new Item("trinidad", 33,
-         333, 33, 0, 0,
-          0);
+        // Cargar desde BD
 
-        //Habilidades
+        Campeon akali = campeonDAO.buscarPorId(1);
+        Campeon veigar = campeonDAO.buscarPorId(2);
+        Campeon fizz = campeonDAO.buscarPorId(3);
+        akali.agregarHabilidad(cincoFilos);
 
-        akali.agregarItem(trinidad);
+
+        Monstruo dragon = monstruoDAO.buscarPorId(3);
+        Monstruo blue = monstruoDAO.buscarPorId(2);
+
+
+        Equipo equipoAliado = new Equipo(
+                "Equipo azul",
+                false
+        );
+
+
+        Equipo equipoEnemigo = new Equipo(
+                "Equipo rojo",
+                true
+        );
+
 
         equipoAliado.agregarPersonaje(akali);
-        equipoAliado.agregarPersonaje(fizz);
         equipoAliado.agregarPersonaje(veigar);
+        equipoAliado.agregarPersonaje(fizz);
+
 
         equipoEnemigo.agregarPersonaje(dragon);
-        equipoEnemigo.agregarPersonaje(minionMelee);
+        equipoEnemigo.agregarPersonaje(blue);
+
+
+
+        Partida partida = new Partida();
+
 
         System.out.println("===== COMBATE =====");
 
 
-        atacante.getGolpeBasico();
-        partida.generarPartida(equipoAliado, equipoEnemigo);
+        partida.generarPartida(
+                equipoAliado,
+                equipoEnemigo
+        );
+
+
     }
+
 }

@@ -1,4 +1,4 @@
-package personajes;
+package org.example.personajes;
 public class SuperMinion extends Minion {
 
     public SuperMinion() {

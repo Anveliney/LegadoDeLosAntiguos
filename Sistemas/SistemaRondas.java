@@ -1,5 +1,5 @@
-package combate;
-import equipos.Equipo;
+package org.example.Sistemas;
+import org.example.equipos.Equipo;
 
 public class SistemaRondas{
 

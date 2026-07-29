@@ -1,7 +1,7 @@
-package equipos;
-import IAs.ControladorIA;
+package org.example.equipos;
+import org.example.IAs.ControladorIA;
 import java.util.ArrayList;
-import personajes.Organico;
+import org.example.personajes.Organico;
 
 public class Equipo {
     

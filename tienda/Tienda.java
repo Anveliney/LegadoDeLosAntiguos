@@ -1,5 +1,5 @@
-package tienda;
-import items.Item;
+package org.example.tienda;
+import org.example.items.Item;
 import java.util.ArrayList;
 
 public class Tienda {

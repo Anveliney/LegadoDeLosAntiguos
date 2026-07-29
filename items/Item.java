@@ -1,4 +1,4 @@
-package items;
+package org.example.items;
 public class Item {
     
     private String nombreItem;
@@ -8,6 +8,8 @@ public class Item {
     private double criticoItem;
     private double armaduraItem;
     private double resistenciaMagicaItem;
+
+    public Item(){}
 
     public Item(String nombreItem ,double  danoItem, double vidaItem,
         double  manaItem, double criticoItem, double armaduraItem, 
@@ -61,4 +63,19 @@ public class Item {
         this.criticoItem = criticoItem;
     }
 
+    public double getArmaduraItem() {
+        return armaduraItem;
+    }
+
+    public void setArmaduraItem(double armaduraItem) {
+        this.armaduraItem = armaduraItem;
+    }
+
+    public double getResistenciaMagicaItem() {
+        return resistenciaMagicaItem;
+    }
+
+    public void setResistenciaMagicaItem(double resistenciaMagicaItem) {
+        this.resistenciaMagicaItem = resistenciaMagicaItem;
+    }
 }

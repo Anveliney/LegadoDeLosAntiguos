@@ -1,4 +1,4 @@
-package personajes;
+package org.example.personajes;
 public class MinionCaster extends Minion {
 
     public MinionCaster() {
